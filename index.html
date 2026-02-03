@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
     <div class="page-header">
         <div class="badge-info">
@@ -15,7 +17,7 @@
         <h1>Chat con el Asistente Virtual</h1>
         <p>Facultad de Ingeniería de Sistemas</p>
     </div>
-    
+
     <div class="container">
         <div class="info-section">
             <h2>
@@ -23,11 +25,11 @@
                 Sobre el Asistente Virtual
             </h2><br>
             <p>
-                Bienvenido al asistente virtual de la Facultad de Ingeniería de Sistemas. 
+                Bienvenido al asistente virtual de la Facultad de Ingeniería de Sistemas.
                 Primero selecciona una categoría, luego podrás hacer tu pregunta específica.
             </p><br>
         </div>
-        
+
         <div class="chatbot-container">
             <div class="chatbot-window">
                 <div class="chatbot-header">
@@ -46,7 +48,7 @@
                         <i class="bi bi-arrow-clockwise"></i>
                     </button>
                 </div>
-                
+
                 <div class="chatbot-body" id="chatBody">
                     <div class="chat-message bot-message">
                         <div class="message-avatar">
@@ -55,53 +57,66 @@
                         <div class="message-content">
                             <div class="message-bubble">
                                 <p>¡Hola! 👋 Soy el asistente virtual de la Facultad de Ingeniería de Sistemas.</p>
-                                <p>Para ayudarte mejor, <strong>primero selecciona una categoría</strong> de las opciones a continuación:</p>
+                                <p>Para ayudarte mejor, <strong>primero selecciona una categoría</strong> de las
+                                    opciones a continuación:</p>
                             </div>
                             <span class="message-time" id="welcomeTime"></span>
                         </div>
                     </div>
-                    
+
                     <div class="quick-suggestions" id="quickSuggestions">
                         <div class="suggestions-label">Selecciona una categoría:</div>
-                        <button class="suggestion-chip" onclick="selectCategory('Modalidades de trabajos de grado', 'bi-mortarboard-fill')">
+                        <button class="suggestion-chip"
+                            onclick="selectCategory('Modalidades de trabajos de grado', 'bi-mortarboard-fill')">
                             <i class="bi bi-mortarboard-fill"></i> Modalidades de trabajos de grado
                         </button>
-                        <button class="suggestion-chip" onclick="selectCategory('TyT PRO / SABER PRO', 'bi-clipboard-check')">
-                            <i class="bi bi-clipboard-check"></i> TyT PRO / SABER PRO
+                        <button class="suggestion-chip"
+                            onclick="selectCategory('TyT PRO/SABER PRO/ICFES', 'bi-clipboard-check')">
+                            <i class="bi bi-clipboard-check"></i> TyT PRO / SABER PRO / ICFES
                         </button>
-                        <button class="suggestion-chip" onclick="selectCategory('Matrícula y Liquidación', 'bi-cash-coin')">
+                        <button class="suggestion-chip"
+                            onclick="selectCategory('Matrícula / Liquidación', 'bi-cash-coin')">
                             <i class="bi bi-cash-coin"></i> Matrícula / Liquidación
                         </button>
-                        <button class="suggestion-chip" onclick="selectCategory('Usuarios y Contraseñas', 'bi-key-fill')">
-                            <i class="bi bi-key-fill"></i> Usuarios / Contraseñas
+                        <button class="suggestion-chip"
+                            onclick="selectCategory('Usuarios / Contraseñas / Correo institucional', 'bi-key-fill')">
+                            <i class="bi bi-key-fill"></i> Usuarios / Contraseñas / Correo institucional
                         </button>
-                        <button class="suggestion-chip" onclick="selectCategory('Cambio de jornada', 'bi-calendar-week')">
+                        <button class="suggestion-chip"
+                            onclick="selectCategory('Cambio de jornada', 'bi-calendar-week')">
                             <i class="bi bi-calendar-week"></i> Cambio de jornada
                         </button>
-                        <button class="suggestion-chip" onclick="selectCategory('Cambios de grupo y horarios', 'bi-clock-history')">
-                            <i class="bi bi-clock-history"></i> Cambios de grupo
+                        <button class="suggestion-chip"
+                            onclick="selectCategory('Cambios de grupo / Horarios', 'bi-clock-history')">
+                            <i class="bi bi-clock-history"></i> Cambios de grupo / Horarios
                         </button>
-                        <button class="suggestion-chip" onclick="selectCategory('Descuentos', 'bi-percent')">
-                            <i class="bi bi-percent"></i> Descuentos
+                        <button class="suggestion-chip"
+                            onclick="selectCategory('Descuentos / Única materia', 'bi-percent')">
+                            <i class="bi bi-percent"></i> Descuentos / Única materia
                         </button>
-                        <button class="suggestion-chip" onclick="selectCategory('Inscripciones', 'bi-pencil-square')">
-                            <i class="bi bi-pencil-square"></i> Inscripciones
+                        <button class="suggestion-chip"
+                            onclick="selectCategory('Inscripciones al programa', 'bi-pencil-square')">
+                            <i class="bi bi-pencil-square"></i> Inscripciones al programa
                         </button>
-                        <button class="suggestion-chip" onclick="selectCategory('Documentos de grado', 'bi-file-earmark-text')">
+                        <button class="suggestion-chip"
+                            onclick="selectCategory('Documentos de grado', 'bi-file-earmark-text')">
                             <i class="bi bi-file-earmark-text"></i> Documentos de grado
                         </button>
-                        <button class="suggestion-chip" onclick="selectCategory('Readmisión y Reingreso', 'bi-arrow-clockwise')">
+                        <button class="suggestion-chip"
+                            onclick="selectCategory('Readmisión / Reingreso', 'bi-arrow-clockwise')">
                             <i class="bi bi-arrow-clockwise"></i> Readmisión / Reingreso
                         </button>
-                        <button class="suggestion-chip" onclick="selectCategory('Créditos académicos', 'bi-journal-bookmark')">
+                        <button class="suggestion-chip"
+                            onclick="selectCategory('Créditos académicos', 'bi-journal-bookmark')">
                             <i class="bi bi-journal-bookmark"></i> Créditos académicos
                         </button>
-                        <button class="suggestion-chip" onclick="selectCategory('Cancelación de semestre', 'bi-x-circle')">
+                        <button class="suggestion-chip"
+                            onclick="selectCategory('Cancelación de semestre', 'bi-x-circle')">
                             <i class="bi bi-x-circle"></i> Cancelación de semestre
                         </button>
                     </div>
                 </div>
-                
+
                 <div class="typing-indicator" id="typingIndicator">
                     <div class="typing-dots">
                         <span></span>
@@ -110,17 +125,12 @@
                     </div>
                     <span>El asistente está escribiendo...</span>
                 </div>
-                
+
                 <div class="chatbot-footer">
                     <div class="chat-input-container">
-                        <textarea 
-                            class="chat-input" 
-                            id="chatInput" 
-                            placeholder="Primero selecciona una categoría arriba..."
-                            rows="2"
-                            onkeypress="handleKeyPress(event)"
-                            disabled
-                        ></textarea>
+                        <textarea class="chat-input" id="chatInput"
+                            placeholder="Primero selecciona una categoría arriba..." rows="2"
+                            onkeypress="handleKeyPress(event)" disabled></textarea>
                         <button class="btn-send" id="sendBtn" onclick="sendMessage()" disabled>
                             <i class="bi bi-send-fill"></i>
                         </button>
@@ -137,4 +147,5 @@
     </div>
     <script src="./script.js"></script>
 </body>
+
 </html>
