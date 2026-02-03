@@ -1,5 +1,5 @@
 const WEBHOOK_URL =
-  "https://n8n.srv1314294.hstgr.cloud/webhook-test/2b915700-f67d-45e1-80a2-bc1f737dcdf8";
+  "https://n8n.srv1314294.hstgr.cloud/webhook/2b915700-f67d-45e1-80a2-bc1f737dcdf8";
 
 let messageHistory = [];
 let currentCategory = null;
