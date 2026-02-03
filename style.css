@@ -1,4 +1,4 @@
- :root {
+:root {
      --uts-blue: #0066A1;
      --uts-green: #A4D233;
      --uts-dark: #2c3e50;
@@ -9,7 +9,7 @@
      margin: 0;
      padding: 0;
      box-sizing: border-box;
-     
+     touch-action: manipulation;
  }
 
  body {
@@ -106,6 +106,10 @@
      align-items: center;
      color: white;
      box-shadow: 0 4px 20px rgba(0, 102, 161, 0.2);
+     position: sticky;
+     top: 0;
+     z-index: 100;
+     flex-shrink: 0;
  }
 
  .chatbot-avatar {
@@ -186,6 +190,7 @@
      display: flex;
      flex-direction: column;
      gap: 1.25rem;
+     -webkit-overflow-scrolling: touch;
  }
 
  .chatbot-body::-webkit-scrollbar {
@@ -398,6 +403,10 @@
      padding: 1.25rem 2rem;
      background: white;
      border-top: 1px solid #e8ecf1;
+     position: sticky;
+     bottom: 0;
+     z-index: 100;
+     flex-shrink: 0;
  }
 
  .chat-input-container {
@@ -464,23 +473,44 @@
      color: #6c757d;
  }
 
+ input, textarea, select {
+  font-size: 16px;
+}
+
+
 
  @media (max-width: 768px) {
      * {
          margin: 0;
          padding: 0;
          box-sizing: border-box;
-           touch-action: manipulation;
+         touch-action: manipulation;
      }
 
      body {
-
          width: 100%;
          height: 100vh;
      }
 
      .chatbot-window {
          height: 550px;
+     }
+
+     .chatbot-header {
+         padding: 1rem 1.5rem;
+         position: sticky;
+         top: 0;
+         z-index: 100;
+     }
+
+     .chatbot-avatar {
+         width: 40px;
+         height: 40px;
+         font-size: 1.3rem;
+     }
+
+     .chatbot-info h4 {
+         font-size: 1rem;
      }
 
      .message-content {
@@ -533,5 +563,10 @@
 
      .chatbot-body {
          padding: 1rem 0.75rem;
+         -webkit-overflow-scrolling: touch;
+     }
+
+     .chatbot-footer {
+         padding: 1rem 1.5rem;
      }
  }
