@@ -251,32 +251,54 @@
             align-items: flex-end;
         }
         
-        .message-bubble {
-            padding: 1rem 1.3rem;
-            border-radius: 18px;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-        
-        .bot-message .message-bubble {
-            background: white;
-            color: var(--uts-dark);
-            border: 1px solid #e8ecf1;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-        }
-        
-        .user-message .message-bubble {
-            background: linear-gradient(135deg, #0066A1 0%, #005a8f 100%);
-            color: white;
-        }
-        
-        .message-bubble p {
-            margin: 0 0 0.5rem 0;
-        }
-        
-        .message-bubble p:last-child {
-            margin-bottom: 0;
-        }
+
+.message-bubble {
+    padding: 1rem 1.3rem;
+    border-radius: 18px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    
+    /* Arreglar desbordamiento de texto */
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    
+    /* Prevenir overflow */
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.bot-message .message-bubble {
+    background: white;
+    color: var(--uts-dark);
+    border: 1px solid #e8ecf1;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.user-message .message-bubble {
+    background: linear-gradient(135deg, #0066A1 0%, #005a8f 100%);
+    color: white;
+}
+
+.message-bubble p {
+    margin: 0 0 0.5rem 0;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.message-bubble p:last-child {
+    margin-bottom: 0;
+}
+
+/* Emails y URLs largos */
+.message-bubble a,
+.message-bubble strong {
+    word-break: break-all;
+}
+
+
         
         .message-time {
             font-size: 0.75rem;
@@ -445,158 +467,65 @@
         }
         
         /* Responsive */
-       /* Responsive */
-@media (max-width: 768px) {
-    /* Fijar el body completo en móvil */
-    body {
-        overflow: hidden;
-        position: fixed;
-        width: 100%;
-        height: 100vh;
-    }
-    
-    /* Ocultar header en móvil para maximizar espacio del chat */
-    .page-header {
-        padding: 1rem;
-    }
-    
-    .page-header h1 {
-        font-size: 1.3rem;
-    }
-    
-    .page-header p {
-        font-size: 0.85rem;
-    }
-    
-    .badge-info {
-        padding: 0.4rem 1rem;
-        font-size: 0.8rem;
-    }
-    
-    /* Ocultar sección de info en móvil */
-    .info-section {
-        display: none;
-    }
-    
-    /* Container ocupa toda la pantalla */
-    .container {
-        padding: 0;
+        @media (max-width: 768px) {
+            * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+            .chatbot-window {
+                height: 550px;
+            }
+            
+            .message-content {
+                max-width: 80%;
+            }
+            
+            .quick-suggestions {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-section {
+                padding: 1.5rem;
+            }
+            .chat-message {
+        gap: 0.5rem;
         max-width: 100%;
-        height: calc(100vh - 120px); /* Altura total menos el header */
+        min-width: 0;
     }
     
-    .chatbot-container {
-        height: 100%;
-        max-width: 100%;
-    }
-    
-    /* Ventana del chat ocupa todo el espacio disponible */
-    .chatbot-window {
-        height: 100%;
-        border-radius: 0; /* Sin bordes redondeados en móvil */
-        box-shadow: none;
-    }
-    
-    /* Header del chat más compacto */
-    .chatbot-header {
-        padding: 1rem 1.5rem;
-    }
-    
-    .chatbot-avatar {
-        width: 40px;
-        height: 40px;
-        font-size: 1.3rem;
-    }
-    
-    .chatbot-info h4 {
-        font-size: 1rem;
-    }
-    
-    .chatbot-status {
-        font-size: 0.75rem;
-    }
-    
-    /* Body del chat con scroll solo interno */
-    .chatbot-body {
-        padding: 1.5rem 1rem;
-        overflow-y: auto;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
-    }
-    
-    /* Mensajes más compactos */
     .message-content {
+        max-width: 90%;
+        min-width: 0;
+        overflow: hidden;
+    }
+    
+    .bot-message .message-content {
+        max-width: 90%;
+    }
+    
+    .user-message .message-content {
         max-width: 85%;
     }
     
     .message-bubble {
         padding: 0.9rem 1.1rem;
         font-size: 0.9rem;
+        word-wrap: break-word;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
     }
     
     .message-avatar {
         width: 35px;
         height: 35px;
         font-size: 1rem;
+        flex-shrink: 0; /* Importante: evita que el avatar se encoja */
     }
     
-    /* Sugerencias en columna */
-    .quick-suggestions {
-        grid-template-columns: 1fr;
-        gap: 0.6rem;
-    }
-    
-    .suggestion-chip {
-        padding: 0.7rem 1rem;
-        font-size: 0.85rem;
-    }
-    
-    /* Footer más compacto */
-    .chatbot-footer {
-        padding: 1rem 1.5rem;
-    }
-    
-    .chat-input {
-        font-size: 0.9rem;
-        padding: 0.8rem 1rem;
-    }
-    
-    .btn-send {
-        width: 45px;
-        height: 45px;
-        font-size: 1.2rem;
-    }
-    
-    .chat-footer-info small {
-        font-size: 0.75rem;
-    }
-}
-
-/* Para pantallas muy pequeñas (iPhone SE, etc) */
-@media (max-width: 375px) {
-    .container {
-        height: calc(100vh - 100px);
-    }
-    
-    .chatbot-header {
-        padding: 0.8rem 1rem;
-    }
-    
-    .chatbot-avatar {
-        width: 35px;
-        height: 35px;
-        margin-right: 0.5rem;
-    }
-    
-    .chatbot-info h4 {
-        font-size: 0.9rem;
-    }
-    
+    /* Padding del chatbody */
     .chatbot-body {
-        padding: 1rem 0.75rem;
+        padding: 1rem 0.75rem; /* Menos padding a los lados */
     }
-    
-    .message-bubble {
-        font-size: 0.85rem;
-    }
-}
+        }
